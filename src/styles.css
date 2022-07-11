@@ -1,0 +1,200 @@
+body {
+  color: #ffffff;
+  background: #f4f4f2;
+  font-family: "Montserrat", sans-serif;
+}
+
+/* left side container styles */
+
+.main {
+  max-width: 800px;
+  margin-top: 80px;
+}
+
+/* input & search button */
+
+.input,
+.search-button {
+  border-radius: 20px;
+  font-weight: 100;
+  font-size: 17px;
+  line-height: 30px;
+}
+
+.input {
+  padding-left: 15px;
+  width: 350px;
+  margin-right: 10px;
+  border: 2px solid #ffffff;
+}
+
+.input:focus {
+  outline: none;
+}
+
+.search-button,
+.current-location {
+  border-radius: 20px;
+  padding: 0 20px 0;
+  margin: 0;
+  border: 2px solid #929bb3;
+  background: #929bb3;
+  color: #ffffff;
+}
+
+.current-location {
+  padding: 0 10px 0;
+  height: 34px;
+}
+
+.search-button:hover,
+.current-location:hover {
+  border: 2px solid #495464;
+  background: #495464;
+}
+
+.weather-img {
+  position: relative;
+}
+
+.weather-img .weather-data {
+  position: absolute;
+  top: 50px;
+  left: 30px;
+  color: white;
+}
+
+.background {
+  max-width: 100%;
+  border-radius: 20px;
+  margin-top: 20px;
+}
+
+.weather-data .day-time {
+  position: absolute;
+  top: 18px;
+  left: 315px;
+  width: 140px;
+}
+
+.main-weather {
+  height: 80px;
+  margin-top: 40px;
+}
+
+.city-name {
+  font-weight: normal;
+  font-size: 40px;
+}
+
+.current-temp {
+  position: absolute;
+  font-size: 80px;
+  font-weight: 300;
+  top: 90px;
+  left: 100px;
+  width: 200px;
+}
+
+.degree-singht {
+  position: absolute;
+  font-size: 40px;
+  top: 10px;
+  left: 100px;
+}
+
+/* weather indicators styles */
+
+.indicators-img {
+  display: block;
+  height: 50px;
+  width: 60px;
+  margin: 15px auto;
+}
+
+.bottom-row {
+  max-width: 509px;
+  margin: 0 auto;
+}
+
+.days,
+.weather-indicators {
+  padding: 8px 0;
+  border-radius: 10px;
+  transition: all 200ms ease-in-out;
+  margin: 0 0 5px;
+  background: #929bb3;
+}
+
+.days:hover,
+.weather-indicators:hover {
+  background: #495464;
+}
+
+.weather-indicators {
+  margin-top: 19px;
+  width: 250px;
+  padding: 7px 0;
+  max-height: 118px;
+}
+
+.weather-indicators:first-of-type {
+  margin-right: 9px;
+}
+
+.indicators-title {
+  position: relative;
+  top: 8px;
+  margin-bottom: 10px;
+  font-weight: 700;
+}
+
+.indicators-walue,
+.day-title {
+  font-weight: 500;
+}
+
+.indicators-walue {
+  font-size: 20px;
+}
+
+/* weather prediction style */
+
+.days {
+  height: 106px;
+}
+
+.day-title,
+.day-value,
+.prediction-img,
+.prediction-temp {
+  margin-left: 15px;
+}
+
+.day-title {
+  margin: 23px 0 0 15px;
+  font-weight: 700;
+}
+
+.day-value {
+  margin: 0 0 23px 15px;
+  font-weight: 300;
+  font-size: 13.5px;
+}
+
+.prediction-img {
+  display: block;
+  height: 40px;
+  margin-top: 10px;
+  margin-left: 28px;
+}
+
+.prediction-temp {
+  margin-left: 22px;
+  padding-top: 5px;
+}
+
+.temp-night {
+  opacity: 0.6;
+  padding-left: 5px;
+}
