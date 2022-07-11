@@ -198,3 +198,16 @@ body {
   opacity: 0.6;
   padding-left: 5px;
 }
+
+.open-source {
+  color: #495464;
+  margin-top: 10px;
+}
+
+.open-sourse-link {
+  text-decoration: none;
+}
+
+.open-sourse-link:hover {
+  color: #495464;
+}
