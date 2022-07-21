@@ -31,7 +31,7 @@ let dateTime = document.querySelector(".day-time");
 dateTime.innerHTML = formatDate(now);
 
 //Show data
-/*function displayWeather(responce) {
+function displayWeather(responce) {
   let cityName = document.querySelector("#city-name");
   let cityNameValue = responce.data.name;
   cityName.innerHTML = cityNameValue;
@@ -46,7 +46,10 @@ dateTime.innerHTML = formatDate(now);
   let windSpeed = document.querySelector("#wind-speed");
   windSpeed.innerHTML = Math.round(responce.data.wind.speed);
 
-  console.log(responce);
+  let icon = `http://openweathermap.org/img/wn/${responce.data.weather[0].icon}@2x.png`;
+  document
+    .querySelector("#currennt-weather-icon")
+    .setAttribute("src", `${icon}`);
 }
 
 function searchCity(city) {
@@ -63,7 +66,7 @@ function changeData(event) {
   searchCity(city);
 }
 
-let cityForm = document.querySelector("#city-form");
+let cityForm = document.querySelector("#search-form");
 cityForm.addEventListener("submit", changeData);
 
 //Current location button
@@ -77,32 +80,11 @@ function showPositionAndWeather(position) {
 }
 
 function getCurrentPosition() {
+  document.querySelector("#input").value = "";
   navigator.geolocation.getCurrentPosition(showPositionAndWeather);
 }
 
 let locationButton = document.querySelector("#current-location");
 locationButton.addEventListener("click", getCurrentPosition);
 
-searchCity("Kyiv");*/
-
-function displayTemperature(responce) {
-  console.log(responce.data);
-  let temp = Math.round(responce.data.main.temp);
-  document.querySelector("#current-temp").innerHTML = temp;
-  let city = responce.data.name;
-  document.querySelector("#city-name").innerHTML = city;
-  let humidity = responce.data.main.humidity;
-  document.querySelector("#humidity").innerHTML = humidity;
-  let wind = Math.round(responce.data.wind.speed);
-  document.querySelector("#wind-speed").innerHTML = wind;
-  let icon = `http://openweathermap.org/img/wn/${responce.data.weather[0].icon}@2x.png`;
-  document
-    .querySelector("#currennt-weather-icon")
-    .setAttribute("src", `${icon}`);
-}
-
-let apiKey = "7b520c6d96772777c0b1b903686b2ce1";
-let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=Rivne&appid=${apiKey}&units=metric`;
-
-console.log(apiUrl);
-axios.get(apiUrl).then(displayTemperature);
+searchCity("Kyiv");
