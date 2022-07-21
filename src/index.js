@@ -39,14 +39,14 @@ function searchCity(city) {
 
 function changeData(event) {
   event.preventDefault();
-  let cityInput = document.querySelector(".input");
+  let cityInput = document.querySelector("#input");
   let city = cityInput.value;
 
   searchCity(city);
 }
 
 function displayWeather(responce) {
-  let cityName = document.querySelector(".city-name");
+  let cityName = document.querySelector("#city-name");
   let cityNameValue = responce.data.name;
   cityName.innerHTML = cityNameValue;
 
