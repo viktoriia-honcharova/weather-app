@@ -31,6 +31,29 @@ let dateTime = document.querySelector(".day-time");
 dateTime.innerHTML = formatDate(now);
 
 //Show data
+function displayForecast(responce) {
+  let forecastElement = document.querySelector("#forecast");
+  forecastElement.innerHTML = `<div class="row days">
+            <div class="col-sm-6">
+              <p class="day-title">Saturday</p>
+              <p class="day-value">18 June</p>
+            </div>
+            <div class="col-sm-6">
+              <img src="#" alt="" class="prediction-img" />
+              <p class="prediction-temp">
+                24° <span class="temp-night"> 11°</span>
+              </p>
+            </div>
+          </div>`;
+  console.log(responce.data);
+}
+
+function getForecast(coordinates) {
+  let apiKey = "7b520c6d96772777c0b1b903686b2ce1";
+  let apiUrl = `https://api.openweathermap.org/data/3.0/onecall?lat=${coordinates.lat}&lon=${coordinates.lon}&appid=${apiKey}&units=metric`;
+  axios.get(apiUrl).then(displayForecast);
+}
+
 function displayWeather(responce) {
   let cityName = document.querySelector("#city-name");
   let cityNameValue = responce.data.name;
@@ -50,6 +73,8 @@ function displayWeather(responce) {
   document
     .querySelector("#currennt-weather-icon")
     .setAttribute("src", `${icon}`);
+
+  getForecast(responce.data.coord);
 }
 
 function searchCity(city) {
