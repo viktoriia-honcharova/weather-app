@@ -31,21 +31,72 @@ let dateTime = document.querySelector(".day-time");
 dateTime.innerHTML = formatDate(now);
 
 //Show data
+function formatDay(timestamp) {
+  let date = new Date(timestamp * 1000);
+  let days = [
+    "Sunday",
+    "Monday",
+    "Tuesday",
+    "Wednesday",
+    "Thursday",
+    "Friday",
+    "Saturday",
+  ];
+  let day = days[date.getDate()];
+
+  return day;
+}
+
+function formatForecastDate(timestamp) {
+  let date = new Date(timestamp * 1000);
+
+  let dateNumb = date.getDate();
+
+  let months = [
+    "January",
+    "February",
+    "March",
+    "April",
+    "May",
+    "June",
+    "July",
+    "August",
+    "September",
+    "October",
+    "November",
+    "December",
+  ];
+  let month = months[date.getMonth()];
+
+  return `${dateNumb} ${month}`;
+}
+
 function displayForecast(responce) {
+  let forecast = responce.data.daily;
   let forecastElement = document.querySelector("#forecast");
-  forecastElement.innerHTML = `<div class="row days">
+
+  forecast.forEach(function (forecastDay, index) {
+    if (index < 5) {
+      forecastElement.innerHTML += `<div class="row days">
             <div class="col-sm-6">
-              <p class="day-title">Saturday</p>
-              <p class="day-value">18 June</p>
+              <p class="day-title">${formatDay(forecastDay.dt)}</p>
+              <p class="day-value">${formatForecastDate(forecastDay.dt)}</p>
             </div>
             <div class="col-sm-6">
-              <img src="#" alt="" class="prediction-img" />
+              <img src="http://openweathermap.org/img/wn/${
+                forecastDay.weather[0].icon
+              }@2x.png" alt="" class="prediction-img" />
               <p class="prediction-temp">
-                24° <span class="temp-night"> 11°</span>
+                ${Math.round(
+                  forecastDay.temp.max
+                )}° <span class="temp-night"> ${Math.round(
+        forecastDay.temp.min
+      )}°</span>
               </p>
             </div>
           </div>`;
-  console.log(responce.data);
+    }
+  });
 }
 
 function getForecast(coordinates) {
