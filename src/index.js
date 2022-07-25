@@ -42,7 +42,7 @@ function formatDay(timestamp) {
     "Friday",
     "Saturday",
   ];
-  let day = days[date.getDate()];
+  let day = days[date.getDay()];
 
   return day;
 }
@@ -75,6 +75,7 @@ function displayForecast(responce) {
   let forecast = responce.data.daily;
   let forecastElement = document.querySelector("#forecast");
 
+  forecastElement.innerHTML = "";
   forecast.forEach(function (forecastDay, index) {
     if (index < 5) {
       forecastElement.innerHTML += `<div class="row days">
@@ -100,9 +101,9 @@ function displayForecast(responce) {
 }
 
 function getForecast(coordinates) {
+  let apiUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${coordinates.lat}&lon=${coordinates.lon}`;
   let apiKey = "7b520c6d96772777c0b1b903686b2ce1";
-  let apiUrl = `https://api.openweathermap.org/data/3.0/onecall?lat=${coordinates.lat}&lon=${coordinates.lon}&appid=${apiKey}&units=metric`;
-  axios.get(apiUrl).then(displayForecast);
+  axios.get(`${apiUrl}&appid=${apiKey}&units=metric`).then(displayForecast);
 }
 
 function displayWeather(responce) {
