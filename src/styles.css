@@ -168,16 +168,16 @@ body {
 .day-value,
 .prediction-img,
 .prediction-temp {
-  margin-left: 15px;
+  margin-left: 5px;
 }
 
 .day-title {
-  margin: 23px 0 0 15px;
+  margin: 23px 0 0 10px;
   font-weight: 700;
 }
 
 .day-value {
-  margin: 0 0 23px 15px;
+  margin: 0 0 23px 10px;
   font-weight: 300;
   font-size: 13.5px;
 }
@@ -186,11 +186,11 @@ body {
   display: block;
   height: 40px;
   margin-top: 10px;
-  margin-left: 28px;
+  margin-left: 12px;
 }
 
 .prediction-temp {
-  margin-left: 22px;
+  margin-left: 10px;
   padding-top: 5px;
 }
 

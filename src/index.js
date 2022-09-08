@@ -79,11 +79,11 @@ function displayForecast(responce) {
   forecast.forEach(function (forecastDay, index) {
     if (index < 5) {
       forecastElement.innerHTML += `<div class="row days">
-            <div class="col-sm-6">
+            <div class="col-sm-7">
               <p class="day-title">${formatDay(forecastDay.dt)}</p>
               <p class="day-value">${formatForecastDate(forecastDay.dt)}</p>
             </div>
-            <div class="col-sm-6">
+            <div class="col-sm-5">
               <img src="http://openweathermap.org/img/wn/${
                 forecastDay.weather[0].icon
               }@2x.png" alt="" class="prediction-img" />
